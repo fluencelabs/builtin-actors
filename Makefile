@@ -37,13 +37,13 @@ publish:
 
 # Create a bundle in a deterministic location
 bundle:
-	cargo run -- -o output/builtin-actors.car
+	cargo +stable run -- -o output/builtin-actors.car
 
 # Create all canonical network bundles
 all-bundles: bundle-mainnet bundle-caterpillarnet bundle-butterflynet bundle-calibrationnet bundle-devnet bundle-testing bundle-testing
 
 bundle-mainnet:
-	BUILD_FIL_NETWORK=mainnet cargo run -- -o output/builtin-actors-mainnet.car
+	BUILD_FIL_NETWORK=mainnet cargo +stable run -- -o output/builtin-actors-mainnet.car
 
 bundle-caterpillarnet:
 	BUILD_FIL_NETWORK=caterpillarnet cargo run -- -o output/builtin-actors-caterpillarnet.car
