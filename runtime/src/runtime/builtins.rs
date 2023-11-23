@@ -24,6 +24,7 @@ pub enum Type {
     EVM = 14,
     EAM = 15,
     EthAccount = 16,
+    Fluence = 17,
 }
 
 impl Type {
@@ -42,6 +43,7 @@ impl Type {
             Type::VerifiedRegistry => "verifiedregistry",
             Type::DataCap => "datacap",
             Type::Placeholder => "placeholder",
+            Type::Fluence => "fluence",
             Type::EVM => "evm",
             Type::EAM => "eam",
             Type::EthAccount => "ethaccount",

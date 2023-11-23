@@ -26,6 +26,7 @@ fil_actor_verifreg = { version = "11.0.0", path = "../actors/verifreg" }
 fil_actor_miner = { version = "11.0.0", path = "../actors/miner" }
 fil_actor_datacap = { version = "11.0.0", path = "../actors/datacap" }
 fil_actor_evm = { version = "11.0.0", path = "../actors/evm" }
+fil_actor_fluence = { version = "11.0.0", path = "../actors/fluence" }
 fil_actor_eam = { version = "11.0.0", path = "../actors/eam" }
 fil_actor_ethaccount = { version = "11.0.0", path = "../actors/ethaccount" }
 

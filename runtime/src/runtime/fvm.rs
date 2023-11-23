@@ -225,6 +225,11 @@ where
         fvm::actor::get_code_cid_for_type(typ as i32)
     }
 
+    fn run_randomx(&self, k: u32, h: u32) -> Result<bool, ActorError> {
+        let result = fvm::fluence::run_randomx(k, h).unwrap();
+        Ok(result)
+    }
+
     fn get_randomness_from_tickets(
         &self,
         personalization: DomainSeparationTag,
