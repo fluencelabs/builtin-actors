@@ -211,8 +211,6 @@ pub trait Runtime: Primitives + Verifier + RuntimePolicy {
         predictable_address: Option<Address>,
     ) -> Result<(), ActorError>;
 
-    fn run_randomx(&self, k: u32, h: u32) -> Result<bool, ActorError>;
-
     /// Deletes the executing actor from the state tree, transferring any balance to beneficiary.
     /// Aborts if the beneficiary does not exist.
     /// May only be called by the actor itself.

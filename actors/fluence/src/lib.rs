@@ -15,7 +15,7 @@ use fil_actors_runtime::{actor_dispatch, ActorDowncast, FIRST_EXPORTED_METHOD_NU
 use fil_actors_runtime::{actor_error, ActorError};
 use types::{AuthenticateMessageReturn, ConstructorParams, PubkeyAddressReturn};
 
-use crate::types::{AuthenticateMessageParams, RandomXParameters};
+use crate::types::{AuthenticateMessageParams, RandomXArguments, RandomXResult};
 
 pub use self::state::State;
 
@@ -32,7 +32,7 @@ fil_actors_runtime::wasm_trampoline!(Actor);
 pub enum Method {
     Constructor = METHOD_CONSTRUCTOR,
     PubkeyAddress = 2,
-    RunRandomX = 5,
+    RunRandomX = frc42_dispatch::method_hash!("RunRandomX"),
     // Deprecated in v10
     // AuthenticateMessage = 3,
     AuthenticateMessageExported = frc42_dispatch::method_hash!("AuthenticateMessage"),
@@ -94,9 +94,18 @@ impl Actor {
     }
 
     /// Fallback method for unimplemented method numbers.
-    pub fn run_randomx(rt: &impl Runtime, params: RandomXParameters) -> Result<bool, ActorError> {
+    pub fn run_randomx(rt: &impl Runtime, params: RandomXArguments) -> Result<RandomXResult, ActorError> {
+        log::info!("actor::run_randomx: start {params:?}");
         rt.validate_immediate_caller_accept_any()?;
-        rt.run_randomx(params.k as u32, params.h as u32)
+        let result = fluence_fvm_sdk::run_randomx(params.k, params.h).unwrap();
+
+        log::info!("actor::run_randomx: result is {result:?}");
+
+        let result = RandomXResult {
+            result: result.to_vec()
+        };
+
+        Ok(result)
     }
 
     /// Fallback method for unimplemented method numbers.

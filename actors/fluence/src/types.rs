@@ -29,7 +29,15 @@ pub struct AuthenticateMessageReturn {
 }
 
 #[derive(Debug, Serialize_tuple, Deserialize_tuple)]
-pub struct RandomXParameters {
-    pub k: i32,
-    pub h: i32,
+pub struct RandomXArguments {
+    #[serde(with = "strict_bytes")]
+    pub k: Vec<u8>,
+    #[serde(with = "strict_bytes")]
+    pub h: Vec<u8>,
+}
+
+#[derive(Debug, Serialize_tuple, Deserialize_tuple)]
+pub struct RandomXResult {
+    #[serde(with = "strict_bytes")]
+    pub result: Vec<u8>,
 }
