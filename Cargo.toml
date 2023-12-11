@@ -60,14 +60,23 @@ members = [
 ]
 
 [patch.crates-io]
-fvm_sdk = { path = "../ref-fvm/sdk" }
-fvm_shared = { path = "../ref-fvm/shared"}
-fvm_ipld_hamt = { path = "../ref-fvm/ipld/hamt" }
-fvm_ipld_amt = { path = "../ref-fvm/ipld/amt" }
-fvm_ipld_bitfield = { path = "../ref-fvm/ipld/bitfield" }
-fvm_ipld_encoding = { path = "../ref-fvm/ipld/encoding" }
-fvm_ipld_blockstore = { path = "../ref-fvm/ipld/blockstore" }
-fvm_ipld_car = { path = "../ref-fvm/ipld/car" }
+#fvm_sdk = { path = "../ref-fvm/sdk" }
+#fvm_shared = { path = "../ref-fvm/shared"}
+#fvm_ipld_hamt = { path = "../ref-fvm/ipld/hamt" }
+#fvm_ipld_amt = { path = "../ref-fvm/ipld/amt" }
+#fvm_ipld_bitfield = { path = "../ref-fvm/ipld/bitfield" }
+#fvm_ipld_encoding = { path = "../ref-fvm/ipld/encoding" }
+#fvm_ipld_blockstore = { path = "../ref-fvm/ipld/blockstore" }
+#fvm_ipld_car = { path = "../ref-fvm/ipld/car" }
+
+fvm_sdk = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
+fvm_shared = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence"}
+fvm_ipld_hamt = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
+fvm_ipld_amt = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
+fvm_ipld_bitfield = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
+fvm_ipld_encoding = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
+fvm_ipld_blockstore = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
+fvm_ipld_car = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
 
 #fvm_shared = { git = "https://github.com/filecoin-project/ref-fvm", branch = "master" }
 #fvm_sdk = { git = "https://github.com/filecoin-project/ref-fvm", branch = "master" }

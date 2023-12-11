@@ -39,5 +39,5 @@ pub struct RandomXArguments {
 #[derive(Debug, Serialize_tuple, Deserialize_tuple)]
 pub struct RandomXResult {
     #[serde(with = "strict_bytes")]
-    pub result: Vec<u8>,
+    pub result: [u8; 32],
 }

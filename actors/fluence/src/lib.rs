@@ -94,17 +94,17 @@ impl Actor {
     }
 
     /// Fallback method for unimplemented method numbers.
-    pub fn run_randomx(rt: &impl Runtime, params: RandomXArguments) -> Result<RandomXResult, ActorError> {
+    pub fn run_randomx(
+        rt: &impl Runtime,
+        params: RandomXArguments,
+    ) -> Result<RandomXResult, ActorError> {
         log::info!("actor::run_randomx: start {params:?}");
         rt.validate_immediate_caller_accept_any()?;
-        let result = fluence_fvm_sdk::run_randomx(params.k, params.h).unwrap();
 
+        let result = fluence_fvm_sdk::run_randomx(params.k, params.h).unwrap();
         log::info!("actor::run_randomx: result is {result:?}");
 
-        let result = RandomXResult {
-            result: result.to_vec()
-        };
-
+        let result = RandomXResult { result };
         Ok(result)
     }
 
